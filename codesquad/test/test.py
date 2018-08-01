@@ -30,6 +30,18 @@ def count_numbers(com, user):
     return result
 
 
+def score(strike, ball):
+    """ 스트라이크, 볼 판정 """
+    if strike > 0 and ball > 0:
+        print("%d 스트라이크 %d 볼" % (strike, ball))
+    elif strike > 0:
+        print("%d 스트라이크" % strike)
+    elif ball > 0:
+        print("%d 볼" % ball)
+    else:
+        print("낫싱")
+
+
 # 컴퓨터의 패
 com_hand = generate_com_numbers()
 
@@ -43,13 +55,7 @@ while strike < 3:
     strike = count[0]
     ball = count[1]
 
-    # 스트라이크, 볼 판정
-    if strike > 0 and ball > 0:
-        print("%d 스트라이크 %d 볼" % (strike, ball))
-    elif strike > 0:
-        print("%d 스트라이크" % strike)
-    elif ball > 0:
-        print("%d 볼" % ball)
+    score(strike, ball)
 
 print("3개의 숫자를 모두 맞히셨습니다! 게임 종료")
 
