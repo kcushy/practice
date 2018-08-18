@@ -3,12 +3,15 @@ from random import randint
 
 
 def generate_com_numbers():
-    """1부터 9까지 임의의 숫자 세개를 생성한다"""
+    """1부터 9까지 임의의 숫자 네개를 생성한다"""
     com_hand = []
-    while len(com_hand) < 3:
-        random_number = randint(1, 9)
-        if random_number not in com_hand:
-            com_hand.append(random_number)
+    obj_list = list(range(1, 10))
+
+    while len(com_hand) < 4:
+        ran_index = randint(0, len(obj_list) - 1)
+        ran_number = obj_list.pop(ran_index)
+        com_hand.append(ran_number)
+
     return com_hand
 
 
@@ -48,8 +51,8 @@ com_hand = generate_com_numbers()
 # 게임 진행
 strike = 0
 
-while strike < 3:
-    guess_number = input("숫자를 입력해주세요 ex)123 : ")
+while strike < 4:
+    guess_number = input("숫자를 입력해주세요 ex)1234 : ")
     count = count_numbers(com_hand, guess_number)
 
     strike = count[0]
@@ -57,5 +60,5 @@ while strike < 3:
 
     score(strike, ball)
 
-print("3개의 숫자를 모두 맞히셨습니다! 게임 종료")
+print("4개의 숫자를 모두 맞히셨습니다! 게임 종료")
 
